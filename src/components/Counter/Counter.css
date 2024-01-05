@@ -1,0 +1,25 @@
+.counter {
+    width: 200px;
+    background-color: #fff;
+    border: 3px solid black;
+}
+
+.counter__monitor {
+    border: 3px solid black;
+    padding: 25px 10px;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.counter__buttons {
+    border: 3px solid black;
+}
+
+.counter__button {
+    width: 50%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
