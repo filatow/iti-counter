@@ -1,23 +1,43 @@
 .counter {
-    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    min-width: 600px;
+}
+
+.counter__widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-width: 200px;
     background-color: #fff;
     border: 3px solid black;
 }
 
-.counter__monitor {
+.counter__top {
+    flex-grow: 1;
+    box-sizing: border-box;
     border: 3px solid black;
+    min-height: 125px;
+}
+
+.counter__monitor {
     padding: 25px 10px;
     font-size: 50px;
     font-weight: 600;
     text-align: center;
 }
 
+.counter__settings-form {
+    padding: 25px 10px;
+}
+
 .counter__buttons {
     border: 3px solid black;
+    display: flex;
 }
 
 .counter__button {
-    width: 50%;
+    flex-grow: 1;
     padding-top: 15px;
     padding-bottom: 15px;
     font-size: 22px;

@@ -9,3 +9,32 @@
 .text-alert {
     color: crimson;
 }
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.input-group > * {
+    justify-self: center;
+}
+.input-group input {
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.input-group:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.input-group__label {
+    display: flex;
+    margin: auto 0;
+}
+.input-group__number {
+    height: 30px;
+    width: 54px;
+    padding: 5px 0 5px 7px;
+}
