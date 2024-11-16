@@ -1,0 +1,11 @@
+.input_with-error
+    /*.input_with-error:active,*/
+    /*.input_with-error:focus,*/
+{
+    border: 1px solid crimson;
+    background-color: #ffd3d9;
+}
+
+.input_with-error:focus-visible {
+    outline: 1px solid crimson;
+}
