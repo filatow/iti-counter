@@ -1,8 +1,8 @@
 import Button from '../Button/Button';
 import React from 'react';
-import styles from './MainWidget.module.css';
+import s from './MainWidget.module.css';
 
-type MainWidgetPropsType = {
+type MainWidgetProps = {
   value: number,
   setValue: React.Dispatch<React.SetStateAction<number>>,
   limit: number,
@@ -10,12 +10,12 @@ type MainWidgetPropsType = {
   error: string,
 }
 
-const MainWidget: React.FC<MainWidgetPropsType> = (props) => {
+const MainWidget: React.FC<MainWidgetProps> = (props) => {
   const {value, setValue, limit, start, error} = props
 
   const isLimitReached = value >= limit
-  const limitClassName = `${isLimitReached ? styles['text-alert'] : ''}`
-  const monitorErrorClassName = `${error ? styles['counter__monitor_with-error'] : ''}`
+  const reachedLimitClassName = `${isLimitReached ? s.reachedLimit : ''}`
+  const monitorErrorClassName = `${error ? s.monitorWithError : ''}`
 
 
   const isIncDisabled = isLimitReached
@@ -25,24 +25,24 @@ const MainWidget: React.FC<MainWidgetPropsType> = (props) => {
   const handleResetClick = () => setValue(start)
 
   return (
-    <section className={`${styles['counter__widget']}`}>
+    <section className={s.widget}>
       <div className={`
-          ${styles['counter__top']} ${styles['counter__monitor']}
-          ${limitClassName} ${monitorErrorClassName}
+          ${s.widgetTop} ${s.monitor}
+          ${reachedLimitClassName} ${monitorErrorClassName}
       `}>
         {error || value}
       </div>
-      <div className={`${styles['counter__buttons']}`}>
+      <div className={s.buttons}>
         <Button
           caption="INC"
           onClick={handleIncClick}
-          classes={`${styles['counter__button']}`}
+          classes={s.button}
           disabled={isIncDisabled}
         />
         <Button
           caption="RESET"
           onClick={handleResetClick}
-          classes={`${styles['counter__button']}`}
+          classes={s.button}
           disabled={isResetDisabled}
         />
       </div>

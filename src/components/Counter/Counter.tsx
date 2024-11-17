@@ -15,7 +15,7 @@ const Counter: React.FC = () => {
 
 
   return (
-    <div className={styles['counter']}>
+    <div className={styles.counter}>
       <SettingsWidget
         value={value}
         setValue={setValue}

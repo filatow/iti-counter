@@ -1,47 +1,47 @@
-.text-alert {
-    color: crimson;
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 270px;
+  background-color: #fff;
+  border: 3px solid black;
 }
 
-.counter__widget {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    width: 270px;
-    background-color: #fff;
-    border: 3px solid black;
+.widgetTop {
+  flex-grow: 1;
+  box-sizing: border-box;
+  border: 3px solid black;
+  min-height: 125px;
 }
 
-.counter__top {
-    flex-grow: 1;
-    box-sizing: border-box;
-    border: 3px solid black;
-    min-height: 125px;
+.monitor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px;
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
 }
 
-.counter__monitor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 10px;
-    font-size: 50px;
-    font-weight: 600;
-    text-align: center;
+.monitorWithError {
+  font-size: 1rem;
+  color: var(--text-alert);
 }
 
-.counter__monitor_with-error {
-    font-size: 1rem;
-    color: crimson;
+.reachedLimit {
+  color: var(--text-alert);
 }
 
-.counter__buttons {
-    border: 3px solid black;
-    display: flex;
+.buttons {
+  border: 3px solid black;
+  display: flex;
 }
 
-.counter__button {
-    flex-grow: 1;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    font-size: 22px;
-    font-weight: 600;
+.button {
+  flex-grow: 1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
 }

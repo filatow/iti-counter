@@ -1,6 +1,6 @@
 import Button from '../Button/Button';
 import React, {useEffect, useState} from 'react';
-import styles from './SettingsWidget.module.css';
+import s from './SettingsWidget.module.css';
 
 type SettingsWidgetProps = {
   value: number
@@ -33,7 +33,7 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
     start, limit, error
   })
   const [isSetDisabled, setIsSetDisabled] = useState<boolean>(true)
-  const inputErrorClassName = `${error ? styles['input_with-error'] : ''}`
+  const inputErrorClassName = `${error ? s.inputWithError : ''}`
 
   useEffect(() => {
     setIsSetDisabled(!!error || (limit === state.limit && start === state.start))
@@ -83,12 +83,12 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
   }
 
   return (
-    <section className={`${styles['counter__widget']}`}>
-      <div className={`${styles['counter__top']} ${styles['counter__settings-form']}`}>
-        <div className={`${styles['input-group']}`}>
-          <label className={`${styles['input-group__label']}`} htmlFor="max-value">Max value:</label>
+    <section className={s.widget}>
+      <div className={s.widgetTop}>
+        <div className={s.inputGroup}>
+          <label className={s.label} htmlFor="max-value">Max value:</label>
           <input
-            className={`${styles['input-group__number']} ${inputErrorClassName}`}
+            className={`${s.inputNumber} ${inputErrorClassName}`}
             id="max-value"
             type="number"
             min={0}
@@ -96,10 +96,10 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
             onChange={handleMaxValueChange}
           />
         </div>
-        <div className={`${styles['input-group']}`}>
-          <label className={`${styles['input-group__label']}`} htmlFor="start-value">Start value:</label>
+        <div className={s.inputGroup}>
+          <label className={s.label} htmlFor="start-value">Start value:</label>
           <input
-            className={`${styles['input-group__number']} ${inputErrorClassName}`}
+            className={`${s.inputNumber} ${inputErrorClassName}`}
             id="start-value"
             type="number"
             min={0}
@@ -108,11 +108,11 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
           />
         </div>
       </div>
-      <div className={`${styles['counter__buttons']}`}>
+      <div className={s.buttons}>
         <Button
           caption="SET"
           onClick={handleSetClick}
-          classes={`${styles['counter__button']}`}
+          classes={s.button}
           disabled={isSetDisabled}
         />
       </div>
