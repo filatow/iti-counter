@@ -36,34 +36,3 @@
   font-size: 22px;
   font-weight: 600;
 }
-
-.inputGroup {
-  display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.inputGroup > * {
-  justify-self: center;
-}
-
-.inputGroup input {
-  box-sizing: border-box;
-  font-size: 18px;
-}
-
-.inputGroup:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.label {
-  display: flex;
-  margin: auto 0;
-}
-
-.inputNumber {
-  height: 30px;
-  width: 70px;
-  padding: 5px 0 5px 7px;
-}

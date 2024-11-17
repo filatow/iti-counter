@@ -1,6 +1,7 @@
 import Button from '../Button/Button';
 import React, {useEffect, useState} from 'react';
 import s from './SettingsWidget.module.css';
+import FieldNumber from '../FieldNumber/FieldNumber';
 
 type SettingsWidgetProps = {
   value: number
@@ -57,7 +58,7 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
 
     if (newStart < 0) {
       setError('The initial value must not be negative')
-    }else if (newStart >= state.limit) {
+    } else if (newStart >= state.limit) {
       setError('The maximum value must be greater than the initial value')
     } else if (error) {
       setError('')
@@ -85,28 +86,22 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
   return (
     <section className={s.widget}>
       <div className={s.widgetTop}>
-        <div className={s.inputGroup}>
-          <label className={s.label} htmlFor="max-value">Max value:</label>
-          <input
-            className={`${s.inputNumber} ${inputErrorClassName}`}
-            id="max-value"
-            type="number"
-            min={0}
-            defaultValue={state.limit}
-            onChange={handleMaxValueChange}
-          />
-        </div>
-        <div className={s.inputGroup}>
-          <label className={s.label} htmlFor="start-value">Start value:</label>
-          <input
-            className={`${s.inputNumber} ${inputErrorClassName}`}
-            id="start-value"
-            type="number"
-            min={0}
-            defaultValue={state.start}
-            onChange={handleStartValueChange}
-          />
-        </div>
+        <FieldNumber
+          label={'Max value'}
+          id={'maxValue'}
+          defaultValue={state.limit}
+          inputExtraClass={inputErrorClassName}
+          onChange={handleMaxValueChange}
+          min={0}
+        />
+        <FieldNumber
+          label={'Start value'}
+          id={'startValue'}
+          defaultValue={state.start}
+          inputExtraClass={inputErrorClassName}
+          onChange={handleStartValueChange}
+          min={0}
+        />
       </div>
       <div className={s.buttons}>
         <Button
