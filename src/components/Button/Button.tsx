@@ -1,5 +1,5 @@
 import React from 'react'
-import './Button.css'
+import styles from './Button.module.css'
 
 type ButtonPropsType = {
     caption: string
@@ -10,8 +10,8 @@ type ButtonPropsType = {
 
 const Button: React.FC<ButtonPropsType> = (props) => {
     const className = props.classes
-        ? `button ${props.classes}`
-        : `button`
+        ? `${styles['button']} ${props.classes}`
+        : `${styles['button']}`
 
     const onClickHandler = () => props.onClick()
 

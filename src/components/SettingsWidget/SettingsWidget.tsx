@@ -1,6 +1,6 @@
 import Button from '../Button/Button';
 import React, {useEffect, useState} from 'react';
-import './SettingsWidget.css';
+import styles from './SettingsWidget.module.css';
 
 type SettingsWidgetProps = {
   value: number
@@ -33,7 +33,7 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
     start, limit, error
   })
   const [isSetDisabled, setIsSetDisabled] = useState<boolean>(true)
-  const inputErrorClassName = `${error ? 'input_with-error' : ''}`
+  const inputErrorClassName = `${error ? styles['input_with-error'] : ''}`
 
   useEffect(() => {
     setIsSetDisabled(!!error || (limit === state.limit && start === state.start))
@@ -83,12 +83,12 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
   }
 
   return (
-    <section className="counter__widget counter__settings">
-      <div className="counter__top counter__settings-form">
-        <div className="input-group">
-          <label className="input-group__label" htmlFor="max-value">Max value:</label>
+    <section className={`${styles['counter__widget']}`}>
+      <div className={`${styles['counter__top']} ${styles['counter__settings-form']}`}>
+        <div className={`${styles['input-group']}`}>
+          <label className={`${styles['input-group__label']}`} htmlFor="max-value">Max value:</label>
           <input
-            className={`input-group__number ${inputErrorClassName}`}
+            className={`${styles['input-group__number']} ${inputErrorClassName}`}
             id="max-value"
             type="number"
             min={0}
@@ -96,10 +96,10 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
             onChange={handleMaxValueChange}
           />
         </div>
-        <div className="input-group">
-          <label className="input-group__label" htmlFor="start-value">Start value:</label>
+        <div className={`${styles['input-group']}`}>
+          <label className={`${styles['input-group__label']}`} htmlFor="start-value">Start value:</label>
           <input
-            className={`input-group__number ${inputErrorClassName}`}
+            className={`${styles['input-group__number']} ${inputErrorClassName}`}
             id="start-value"
             type="number"
             min={0}
@@ -108,11 +108,11 @@ const SettingsWidget: React.FC<SettingsWidgetProps> = (
           />
         </div>
       </div>
-      <div className="counter__buttons">
+      <div className={`${styles['counter__buttons']}`}>
         <Button
           caption="SET"
           onClick={handleSetClick}
-          classes="counter__button"
+          classes={`${styles['counter__button']}`}
           disabled={isSetDisabled}
         />
       </div>

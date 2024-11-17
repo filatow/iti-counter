@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './Counter.css'
+import styles from './Counter.module.css'
 import SettingsWidget from '../SettingsWidget/SettingsWidget'
 import MainWidget from '../MainWidget/MainWidget';
 
@@ -17,7 +17,7 @@ const Counter: React.FC<CounterProps> = (props) => {
 
 
   return (
-    <div className="counter">
+    <div className={styles['counter']}>
       <SettingsWidget
         value={value}
         setValue={setValue}

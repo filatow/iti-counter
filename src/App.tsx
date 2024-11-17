@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import styles from './App.module.css'
 import Counter from './components/Counter/Counter'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   const limit = Number(localStorage.getItem('counter-limit')) || 5
 
   return (
-    <div className="app">
+    <div className={styles['app']}>
       <Counter
         start={start}
         limit={limit}
