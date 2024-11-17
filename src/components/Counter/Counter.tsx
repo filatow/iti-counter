@@ -3,16 +3,14 @@ import styles from './Counter.module.css'
 import SettingsWidget from '../SettingsWidget/SettingsWidget'
 import MainWidget from '../MainWidget/MainWidget';
 
-type CounterProps = {
-  start: number
-  limit: number
-  increment?: number
-}
 
-const Counter: React.FC<CounterProps> = (props) => {
-  const [value, setValue] = useState<number>(props.start)
-  const [start, setStart] = useState<number>(props.start)
-  const [limit, setLimit] = useState<number>(props.limit)
+const Counter: React.FC = () => {
+  const startFromStorage = Number(localStorage.getItem('counter-start')) || 0
+  const limitFromStorage = Number(localStorage.getItem('counter-limit')) || 5
+
+  const [value, setValue] = useState<number>(startFromStorage)
+  const [start, setStart] = useState<number>(startFromStorage)
+  const [limit, setLimit] = useState<number>(limitFromStorage)
   const [error, setError] = useState<string>('')
 
 
@@ -34,7 +32,6 @@ const Counter: React.FC<CounterProps> = (props) => {
         start={start}
         limit={limit}
         error={error}
-        increment={props.increment}
       />
     </div>
   );

@@ -8,12 +8,10 @@ type MainWidgetPropsType = {
   limit: number,
   start: number,
   error: string,
-  increment?: number,
 }
 
 const MainWidget: React.FC<MainWidgetPropsType> = (props) => {
   const {value, setValue, limit, start, error} = props
-  const increment = props.increment || 1
 
   const isLimitReached = value >= limit
   const limitClassName = `${isLimitReached ? styles['text-alert'] : ''}`
@@ -23,12 +21,15 @@ const MainWidget: React.FC<MainWidgetPropsType> = (props) => {
   const isIncDisabled = isLimitReached
   const isResetDisabled = value === 0
 
-  const handleIncClick = () => setValue(val => val + increment)
+  const handleIncClick = () => setValue(val => val + 1)
   const handleResetClick = () => setValue(start)
 
   return (
     <section className={`${styles['counter__widget']}`}>
-      <div className={`${styles['counter__top']} ${styles['counter__monitor']} ${limitClassName} ${monitorErrorClassName}`}>
+      <div className={`
+          ${styles['counter__top']} ${styles['counter__monitor']}
+          ${limitClassName} ${monitorErrorClassName}
+      `}>
         {error || value}
       </div>
       <div className={`${styles['counter__buttons']}`}>
