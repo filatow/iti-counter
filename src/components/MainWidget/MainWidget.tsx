@@ -1,17 +1,17 @@
 import Button from '../Button/Button';
 import React from 'react';
 import s from './MainWidget.module.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '../../store';
+import {setValueAC} from '../../reducer';
 
-type MainWidgetProps = {
-  value: number,
-  setValue: React.Dispatch<React.SetStateAction<number>>,
-  limit: number,
-  start: number,
-  error: string,
-}
+type MainWidgetProps = {}
 
-const MainWidget: React.FC<MainWidgetProps> = (props) => {
-  const {value, setValue, limit, start, error} = props
+const MainWidget: React.FC<MainWidgetProps> = () => {
+  const dispatch = useDispatch()
+  const state = useSelector<RootState, RootState>(state => state)
+  const {value, limit, start, error} = state
+
 
   const isLimitReached = value >= limit
   const reachedLimitClassName = `${isLimitReached ? s.reachedLimit : ''}`
@@ -21,8 +21,12 @@ const MainWidget: React.FC<MainWidgetProps> = (props) => {
   const isIncDisabled = isLimitReached
   const isResetDisabled = value === 0
 
-  const handleIncClick = () => setValue(val => val + 1)
-  const handleResetClick = () => setValue(start)
+  const handleIncClick = () => {
+    dispatch(setValueAC(value + 1))
+  }
+  const handleResetClick = () => {
+    dispatch(setValueAC(start))
+  }
 
   return (
     <section className={s.widget}>
