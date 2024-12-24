@@ -3,8 +3,9 @@ import React, {useEffect, useState} from 'react';
 import s from './SettingsWidget.module.css';
 import FieldNumber from '../FieldNumber/FieldNumber';
 import {useSelector} from 'react-redux';
-import {RootState} from '../../store';
+import {AppState} from '../../store';
 import {useSettingsHandlers} from './hooks/useSettingsHandlers';
+import {CounterState} from '../../counterReducer';
 
 type SettingsWidgetProps = {}
 export type State = {
@@ -13,7 +14,7 @@ export type State = {
 }
 
 const SettingsWidget: React.FC<SettingsWidgetProps> = () => {
-  const {limit, start, error} = useSelector<RootState, RootState>(state => state)
+  const {limit, start, error} = useSelector<AppState, CounterState>(state => state.counter)
 
   const [state, setState] = useState<State>({
     start, limit

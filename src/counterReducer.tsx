@@ -26,17 +26,19 @@ export const setErrorAC = (error: string) => {
   } as const
 }
 
-const initialState: State = {
+const initialState = {
   value: 0,
   start: 0,
   limit: 5,
   error: ''
 }
 
-export const reducer = (
-  state: State = initialState,
+export type CounterState = typeof initialState
+
+export const counterReducer = (
+  state: CounterState = initialState,
   action: Action
-): State => {
+): CounterState => {
   switch (action.type) {
     case 'SET_VALUE': {
       return {...state, value: action.payload.value}
@@ -55,12 +57,6 @@ export const reducer = (
   }
 }
 
-type State = {
-  value: number
-  start: number
-  limit: number
-  error: string
-}
 
 type SetValueAction = ReturnType<typeof setValueAC>
 type SetStartAction = ReturnType<typeof setStartAC>

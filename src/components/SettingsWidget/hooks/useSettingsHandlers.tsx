@@ -1,8 +1,8 @@
 import React from 'react';
-import {setErrorAC, setLimitAC, setStartAC, setValueAC} from '../../../reducer';
+import {CounterState, setErrorAC, setLimitAC, setStartAC, setValueAC} from '../../../counterReducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {State} from '../SettingsWidget';
-import {RootState} from '../../../store';
+import {AppState} from '../../../store';
 
 
 export const useSettingsHandlers = (
@@ -10,7 +10,7 @@ export const useSettingsHandlers = (
   setState: React.Dispatch<React.SetStateAction<State>>
 ) => {
   const dispatch = useDispatch()
-  const {value, error} = useSelector<RootState, RootState>(state => state)
+  const {value, error} = useSelector<AppState, CounterState>(state => state.counter)
 
   const handleMaxValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newLimit = Number(e.target.value);
